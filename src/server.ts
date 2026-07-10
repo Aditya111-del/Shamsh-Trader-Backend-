@@ -20,7 +20,7 @@ app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' },
 }));
 
-const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173')
+const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173,https://shamsh-trader-frontend.vercel.app')
   .split(',')
   .map((o) => o.trim());
 
