@@ -76,6 +76,8 @@ export const fetchYouTubeMeta = async (req: Request, res: Response, next: NextFu
 
     let title = '';
     let duration = '';
+    let image = '';
+    let views = '';
 
     const titleMatch = html.match(/<title>(.*?)<\/title>/);
     if (titleMatch && titleMatch[1]) {
@@ -96,7 +98,24 @@ export const fetchYouTubeMeta = async (req: Request, res: Response, next: NextFu
       }
     }
 
-    res.json({ title, duration });
+    const ogImageMatch = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i);
+    if (ogImageMatch && ogImageMatch[1]) {
+      image = ogImageMatch[1];
+    }
+
+    const viewCountMatch = html.match(/"viewCount":"(\d+)"/);
+    if (viewCountMatch && viewCountMatch[1]) {
+      const count = parseInt(viewCountMatch[1]);
+      if (count >= 1000000) {
+        views = (count / 1000000).toFixed(1).replace(/\.0$/, '') + 'M views';
+      } else if (count >= 1000) {
+        views = (count / 1000).toFixed(1).replace(/\.0$/, '') + 'K views';
+      } else {
+        views = count + ' views';
+      }
+    }
+
+    res.json({ title, duration, image, views });
   } catch (error) {
     console.error('Error fetching YouTube meta:', error);
     res.status(500).json({ message: 'Failed to fetch meta' });
