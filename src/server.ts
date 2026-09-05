@@ -18,19 +18,20 @@ app.use(helmet({
   // Relax CSP in development so the API is reachable from the local Vite dev server
   contentSecurityPolicy: process.env.NODE_ENV === 'production' ? undefined : false,
   crossOriginResourcePolicy: { policy: 'cross-origin' },
-  crossOriginOpenerPolicy: { policy: 'same-origin-allow-popups' },
+  crossOriginOpenerPolicy: false,
 }));
 
-const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173,http://localhost:5174,https://shamsh-trader-frontend.vercel.app')
+const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173,http://localhost:5174,https://shamsh-trader-frontend.vercel.app,https://shamshtrader.com,https://www.shamshtrader.com')
   .split(',')
   .map((o) => o.trim());
 
-app.use(cors({
+const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
-    // Allow requests with no origin (e.g. curl, Postman) or matching origins
+    // Allow requests with no origin (e.g. curl, Postman, mobile) or matching origins
     if (
       !origin ||
       allowedOrigins.includes(origin) ||
+      origin.includes('shamshtrader.com') ||
       origin.endsWith('.vercel.app') ||
       origin.includes('localhost') ||
       origin.includes('127.0.0.1')
@@ -44,10 +45,12 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   exposedHeaders: ['Set-Cookie'],
-}));
+};
+
+app.use(cors(corsOptions));
 
 // Handle all CORS preflight requests globally
-app.options(/(.*)/, cors());
+app.options(/(.*)/, cors(corsOptions));
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
