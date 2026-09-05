@@ -22,7 +22,7 @@ const SettingsSchema: Schema = new Schema(
     youtubeStats: { type: String, default: '128K' },
     xStats: { type: String, default: '42K' },
     instagramStats: { type: String, default: '86K' },
-    marqueeBrands: { type: String, default: 'Binance, TradingView, MetaTrader 5, Bybit, OKX, Coinbase, Bitget' },
+    marqueeBrands: { type: String, default: 'Delta exchange, Mudrex, FYERS, COINDCX, COINSWITCH, SPIDER, SUNCRYPTO, SAHI, FIRST DEMAT 5 PAISA' },
   },
   { timestamps: true }
 );
