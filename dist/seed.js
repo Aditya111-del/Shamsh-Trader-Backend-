@@ -13,12 +13,12 @@ dotenv_1.default.config();
 const UPCOMING_EVENTS = [
     {
         type: 'UPCOMING',
-        title: 'Mumbai Trading Summit 2026',
+        title: 'Patna Trading Conclave 2026',
         description: 'Live market breakdowns, Indian market F&O and Crypto workshops, and an evening of networking with 300+ traders.',
-        location: 'Grand Hyatt, Mumbai',
+        location: 'Patna, Bihar',
         date: new Date('2026-08-24T10:00:00Z'),
         time: '10:00 — 19:00 IST',
-        images: ['/images/capability-1.jpg'],
+        images: ['/images/events/patna-event-1.jpg'],
         seatsFilled: 246,
         totalSeats: 300,
     },
@@ -37,15 +37,15 @@ const UPCOMING_EVENTS = [
 const ARCHIVE_EVENTS = [
     {
         type: 'ARCHIVE',
-        title: 'Dubai Traders Meetup',
-        section: '2025 · 180 attendees · Keynote night',
-        images: ['/images/research-1.jpg'],
+        title: 'Patna Traders Conclave',
+        section: '2025 · 300+ attendees · Keynote conclave',
+        images: ['/images/events/patna-event-1.jpg', '/images/events/patna-event-2.jpg', '/images/events/patna-event-3.jpg', '/images/events/patna-event-4.jpg'],
     },
     {
         type: 'ARCHIVE',
-        title: 'Risk Workshop',
-        section: '2025 · Delhi',
-        images: ['/images/capability-2.jpg'],
+        title: 'Registration & Desk',
+        section: '2025 · Patna',
+        images: ['/images/events/patna-event-2.jpg'],
     },
     {
         type: 'ARCHIVE',
@@ -55,21 +55,21 @@ const ARCHIVE_EVENTS = [
     },
     {
         type: 'ARCHIVE',
-        title: 'Indian Market Traders Summit',
-        section: '2024 · Bangalore',
-        images: ['/images/research-3.jpg'],
+        title: 'Indian Market Conclave',
+        section: '2025 · Patna Edition',
+        images: ['/images/events/patna-event-3.jpg'],
     },
     {
         type: 'ARCHIVE',
-        title: 'Scalping Night',
-        section: '2024 · Mumbai',
-        images: ['/images/research-2.jpg'],
+        title: 'Live Keynote Stage',
+        section: '2025 · Patna',
+        images: ['/images/events/patna-event-4.jpg'],
     },
     {
         type: 'ARCHIVE',
         title: 'Live Trading Arena',
-        section: '2024 · Goa retreat',
-        images: ['/images/capability-4.jpg'],
+        section: '2025 · Community Meetup',
+        images: ['/images/events/patna-event-2.jpg'],
     },
 ];
 const POSTS = [

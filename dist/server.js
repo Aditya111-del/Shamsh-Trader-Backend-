@@ -53,6 +53,7 @@ app.use((0, cookie_parser_1.default)());
 app.use((0, morgan_1.default)('dev'));
 // Serve uploaded files statically
 app.use('/uploads', express_1.default.static(path_1.default.join(process.cwd(), 'uploads')));
+app.use('/images', express_1.default.static(path_1.default.join(process.cwd(), 'uploads/images')));
 const errorHandler_1 = require("./middlewares/errorHandler");
 const authRoutes_1 = __importDefault(require("./routes/authRoutes"));
 const adminRoutes_1 = __importDefault(require("./routes/adminRoutes"));

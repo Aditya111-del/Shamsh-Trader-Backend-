@@ -59,6 +59,7 @@ app.use(morgan('dev'));
 
 // Serve uploaded files statically
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
+app.use('/images', express.static(path.join(process.cwd(), 'uploads/images')));
 
 import { errorHandler, notFound } from './middlewares/errorHandler';
 import authRoutes from './routes/authRoutes';
