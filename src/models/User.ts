@@ -9,11 +9,13 @@ export enum Role {
 
 export interface IUser extends Document {
   email: string;
-  passwordHash: string;
+  passwordHash?: string;
   name: string;
   role: Role;
   isVerified: boolean;
   profileImage?: string;
+  googleId?: string;
+  authProvider?: 'local' | 'google';
   createdAt: Date;
   updatedAt: Date;
 }
@@ -29,7 +31,7 @@ const userSchema = new Schema<IUser>(
     },
     passwordHash: {
       type: String,
-      required: true,
+      required: false,
     },
     name: {
       type: String,
@@ -47,6 +49,16 @@ const userSchema = new Schema<IUser>(
     },
     profileImage: {
       type: String,
+    },
+    googleId: {
+      type: String,
+      sparse: true,
+      index: true,
+    },
+    authProvider: {
+      type: String,
+      enum: ['local', 'google'],
+      default: 'local',
     },
   },
   {

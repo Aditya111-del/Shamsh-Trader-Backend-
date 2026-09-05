@@ -48,6 +48,11 @@ export const updatePassword = async (req: Request, res: Response, next: NextFunc
       return;
     }
 
+    if (!user.passwordHash) {
+      res.status(400).json({ message: 'Accounts authenticated via Google do not have a password' });
+      return;
+    }
+
     const isMatch = await bcrypt.compare(currentPassword, user.passwordHash);
 
     if (!isMatch) {

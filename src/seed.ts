@@ -11,7 +11,7 @@ const UPCOMING_EVENTS = [
   {
     type: 'UPCOMING',
     title: 'Mumbai Trading Summit 2026',
-    description: 'Live market breakdowns, prop-firm workshops and an evening of networking with 300+ traders.',
+    description: 'Live market breakdowns, Indian market F&O and Crypto workshops, and an evening of networking with 300+ traders.',
     location: 'Grand Hyatt, Mumbai',
     date: new Date('2026-08-24T10:00:00Z'),
     time: '10:00 — 19:00 IST',
@@ -53,7 +53,7 @@ const ARCHIVE_EVENTS = [
   },
   {
     type: 'ARCHIVE',
-    title: 'Funded Trader Awards',
+    title: 'Indian Market Traders Summit',
     section: '2024 · Bangalore',
     images: ['/images/research-3.jpg'],
   },
@@ -75,7 +75,7 @@ const POSTS = [
   {
     title: 'The 3-touch range model, fully mapped',
     slug: 'the-3-touch-range-model-fully-mapped',
-    excerpt: 'Entry criteria, invalidation logic and 40 annotated examples across FX and crypto.',
+    excerpt: 'Entry criteria, invalidation logic and 40 annotated examples across Crypto and Indian Markets.',
     content: 'Full content goes here...',
     image: '/images/capability-4.jpg',
     category: 'Playbooks · Jul 2026',
@@ -113,9 +113,9 @@ const POSTS = [
     readTime: '9 min read',
   },
   {
-    title: 'Reading the DXY like a market maker',
-    slug: 'reading-the-dxy-like-a-market-maker',
-    excerpt: "The dollar index drives everything you trade. Here's the weekly framework.",
+    title: 'Reading India VIX & Nifty like a market maker',
+    slug: 'reading-india-vix-nifty-like-a-market-maker',
+    excerpt: "Volatility and index momentum drive Indian market swings. Here's the weekly framework.",
     content: 'Full content goes here...',
     image: '/images/capability-2.jpg',
     category: 'Markets · May 2026',
