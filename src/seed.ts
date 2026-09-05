@@ -10,9 +10,9 @@ dotenv.config();
 const UPCOMING_EVENTS = [
   {
     type: 'UPCOMING',
-    title: 'Patna Trading Conclave 2026',
+    title: 'Agra Shamsh Trader Conclave 4.0',
     description: 'Live market breakdowns, Indian market F&O and Crypto workshops, and an evening of networking with 300+ traders.',
-    location: 'Patna, Bihar',
+    location: 'Agra, Uttar Pradesh',
     date: new Date('2026-08-24T10:00:00Z'),
     time: '10:00 — 19:00 IST',
     images: ['/images/events/patna-event-1.jpg'],
