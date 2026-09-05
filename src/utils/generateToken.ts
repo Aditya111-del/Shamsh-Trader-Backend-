@@ -20,20 +20,20 @@ export const generateTokens = async (res: Response, userId: string | mongoose.Ty
     expiresAt,
   });
 
+  const isProd = process.env.NODE_ENV === 'production';
+
   // Set cookies
   res.cookie('jwt', accessToken, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    // 'lax' allows the cookie to be sent in cross-origin requests from same site;
-    // 'strict' would block it in the Vite dev server (different port)
-    sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
     maxAge: 60 * 60 * 1000, // 1 hour
   });
 
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   });
 
@@ -41,12 +41,17 @@ export const generateTokens = async (res: Response, userId: string | mongoose.Ty
 };
 
 export const clearTokens = async (res: Response, refreshToken?: string) => {
+  const isProd = process.env.NODE_ENV === 'production';
   res.cookie('jwt', '', {
     httpOnly: true,
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
     expires: new Date(0),
   });
   res.cookie('refreshToken', '', {
     httpOnly: true,
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
     expires: new Date(0),
   });
 
