@@ -19,6 +19,7 @@ app.use((0, helmet_1.default)({
     // Relax CSP in development so the API is reachable from the local Vite dev server
     contentSecurityPolicy: process.env.NODE_ENV === 'production' ? undefined : false,
     crossOriginResourcePolicy: { policy: 'cross-origin' },
+    crossOriginOpenerPolicy: { policy: 'same-origin-allow-popups' },
 }));
 const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173,https://shamsh-trader-frontend.vercel.app')
     .split(',')
